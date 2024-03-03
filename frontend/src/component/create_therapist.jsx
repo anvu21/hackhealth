@@ -43,7 +43,7 @@ const Create_therapist = () => {
     e.preventDefault();
     console.log(data)
     try {
-      const response = await axios.post(`${import.meta.env.VITE_APP_API_URL}/signup/patient`, data, {
+      const response = await axios.post(`https://mountaintop-program-3db4f15eaa44.herokuapp.com//signup/patient`, data, {
         headers: {
           'Content-Type': 'application/json'
         }
