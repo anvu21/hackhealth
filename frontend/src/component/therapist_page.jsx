@@ -57,7 +57,7 @@ const Therapist = () => {
       }
     
       try {
-        const response = await axios.post(`https://mountaintop-program-3db4f15eaa44.herokuapp.com/fetchHA`, {}, {
+        const response = await axios.post(`${import.meta.env.VITE_APP_API_URL}/fetchHA`, {}, {
           headers: { 'auth-token': token }
         });
         // Directly set the fetched data here without processing
@@ -77,7 +77,7 @@ const Therapist = () => {
 
       try {
         // Attempt to validate the token
-        await axios.get(`https://mountaintop-program-3db4f15eaa44.herokuapp.com/checkToken`, {
+        await axios.get(`${import.meta.env.VITE_APP_API_URL}/checkToken`, {
           headers: { 'auth-token': localStorage.getItem('token') }
         });
         console.log('Token is valid');
@@ -109,7 +109,7 @@ const Therapist = () => {
     const token = localStorage.getItem('token');
     try {
       // Replace URL with your actual backend endpoint
-      await axios.post(`https://mountaintop-program-3db4f15eaa44.herokuapp.com/insertHA`, { happiness: moodValue,patient_username : localStorage.getItem('name')  }, {
+      await axios.post(`${import.meta.env.VITE_APP_API_URL}/insertHA`, { happiness: moodValue,patient_username : localStorage.getItem('name')  }, {
         headers: { 'auth-token': localStorage.getItem('token') }
       });
       console.log('Mood submitted successfully');
